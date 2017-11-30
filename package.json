@@ -1,0 +1,40 @@
+{
+  "name": "wallets-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "wallets-generator": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "babel src -d dist",
+    "dev": "babel src -d dist --watch",
+    "lint": "standard 'src/**/*.js'",
+    "jest": "jest src/",
+    "test": "npm run lint && npm run jest"
+  },
+  "standard": {
+    "globals": [
+      "beforeAll",
+      "afterAll",
+      "it",
+      "describe",
+      "expect"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bitcoinjs-lib": "^3.3.1",
+    "ethereumjs-wallet": "^0.6.0",
+    "fs-extra": "^4.0.2",
+    "vorpal": "^1.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1",
+    "standard": "^10.0.3"
+  }
+}
