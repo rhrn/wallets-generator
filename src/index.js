@@ -29,9 +29,15 @@ export async function generate ({ coin, count, root }) {
 }
 
 export function list ({ root }) {
-  const data = fs.readdirSync(root)
-
-  return { data }
+  try {
+    const data = fs.readdirSync(root)
+    return { data }
+  } catch (e) {
+    if (e.code === 'ENOENT') {
+      return { data: [] }
+    }
+    throw e
+  }
 }
 
 export async function exportAddress ({ root, output, json }) {
