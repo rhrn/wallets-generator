@@ -40,13 +40,13 @@ export function list ({ root }) {
   }
 }
 
-export async function exportAddress ({ root, output, json }) {
+export async function exportAddress ({ root, output, json, coin }) {
   const { data } = list({ root })
 
   if (json) {
-    await listToJSON({ list: db.parseList(data), output })
+    await listToJSON({ list: db.parseList(data, coin), output })
   } else {
-    await listToCSV({ list: db.parseList(data), output })
+    await listToCSV({ list: db.parseList(data, coin), output })
   }
 }
 

@@ -3,11 +3,11 @@ import * as fs from 'fs-extra'
 
 const SEPARATOR = '--'
 
-export function parseList (list) {
+export function parseList (list, coin) {
   return list.map(file => {
     const [ timezone, date, address ] = file.split(SEPARATOR)
 
-    return { timezone, date, address }
+    return { timezone, date, address, coin }
   })
 }
 
