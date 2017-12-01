@@ -12,9 +12,16 @@ const prepare = (args) => {
   const subPath = path.join(coin, group)
   const root = path.join(workdir, subPath)
 
-  const output = args.options.output ? path.join(cwd, args.options.output) : undefined
-  const json = args.options.json
-  const csv = args.options.csv
+  let json = args.options.json
+  let csv = args.options.csv
+
+  if (json === undefined || csv === undefined) {
+    json = true
+  }
+
+  args.options.output = args.options.output || `${coin}-${Date.now()}.${json ? 'json' : 'csv'}`
+
+  const output = path.join(cwd, args.options.output)
 
   return { coin, count, group, root, output, json, csv }
 }
