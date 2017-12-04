@@ -11,12 +11,12 @@ npm install -g wallets-generator
 #### Show supported coins
 * `wallets-generator coins`
 ```
-- eth
-- btc
-- ltc
-- bch
-- btg
-- etc
+- { name: 'Bitcoin', symbol: 'btc' }
+- { name: 'Ethereum', symbol: 'eth' }
+- { name: 'Litecoin', symbol: 'ltc' }
+- { name: 'Bitcoin Cash', symbol: 'bch' }
+- { name: 'Bitcoin Gold', symbol: 'btg' }
+- { name: 'Ethereum Classic', symbol: 'etc' }
 ```
 
 #### Generate
@@ -34,7 +34,7 @@ UTC--2017-11-30T10-01-33.487Z--14zqZnKMisTbz8bzeUUUvwQ5DueJKyHiYw
 ```
 
 #### Export to json
-* `wallets-generator export btc --json --output btc.json` - export address to json
+* `wallets-generator export btc --json --output btc.json`
 ```
 saved to: /path/btc.json
 ```
@@ -45,7 +45,7 @@ saved to: /path/btc.json
 ```
 
 #### Export to csv
-* `wallets-generator export btc --csv --output btc.csv` - export address to csv
+* `wallets-generator export btc --csv --output btc.csv`
 ```
 saved to: /path/btc.csv
 ```

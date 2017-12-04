@@ -4,7 +4,32 @@ import * as coins from './coins'
 
 export async function coinsList () {
   return {
-    coins: Object.keys(coins)
+    coins: [
+      {
+        name: 'Bitcoin',
+        symbol: 'btc'
+      },
+      {
+        name: 'Ethereum',
+        symbol: 'eth'
+      },
+      {
+        name: 'Litecoin',
+        symbol: 'ltc'
+      },
+      {
+        name: 'Bitcoin Cash',
+        symbol: 'bch'
+      },
+      {
+        name: 'Bitcoin Gold',
+        symbol: 'btg'
+      },
+      {
+        name: 'Ethereum Classic',
+        symbol: 'etc'
+      }
+    ]
   }
 }
 
