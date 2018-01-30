@@ -11,7 +11,7 @@ beforeAll(async () => {
 })
 
 it('generate file name by address', () => {
-  const filename = db.generateFilename('publicAddress')
+  const filename = db.generateFilenameForSingleWallet('publicAddress')
 
   expect(filename).toContain('UTC--')
   expect(filename).toContain('--publicAddress')

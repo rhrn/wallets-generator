@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import fs from 'fs-extra'
 import * as db from './db/file'
 import * as coins from './coins'
@@ -33,7 +34,7 @@ export async function coinsList () {
   }
 }
 
-export async function generate ({ coin, count, root }) {
+export async function generate ({ coin, count, root, saveAsOneFile = false }) {
   count = +count
 
   if (!coins[coin]) {
@@ -42,10 +43,21 @@ export async function generate ({ coin, count, root }) {
 
   await fs.ensureDir(root)
 
+  const wallets = []
+
   let i = 0
   for (; i < count; i++) {
     const wallet = coins[coin].generateWallet()
-    await db.saveWallet(root, wallet)
+
+    if (saveAsOneFile) {
+      wallets.push(wallet)
+    } else {
+      await db.saveWallet(root, wallet)
+    }
+  }
+
+  if (saveAsOneFile) {
+    await db.saveMultipleWallets(root, wallets)
   }
 
   return {
@@ -65,13 +77,13 @@ export function list ({ root }) {
   }
 }
 
-export async function exportAddress ({ root, output, json, coin }) {
+export async function exportAddress ({ root, output, json, coin, includePrivateKey }) {
   const { data } = list({ root })
 
   if (json) {
-    await listToJSON({ list: db.parseList(data, coin), output })
+    await listToJSON({ list: await db.parseList(data, coin, root, includePrivateKey), output })
   } else {
-    await listToCSV({ list: db.parseList(data, coin), output })
+    await listToCSV({ list: await db.parseList(data, coin, root, includePrivateKey), output })
   }
 }
 
