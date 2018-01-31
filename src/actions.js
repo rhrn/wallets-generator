@@ -7,6 +7,8 @@ const prepare = (args) => {
   const count = args.options.count || 1
   const wallets = args.options.wallets || 'wallets'
   const group = args.options.group || 'main'
+  const includePrivateKey = args.options['include-private-key']
+  const saveAsOneFile = args.options['one-file']
 
   const workdir = path.join(cwd, wallets)
   const subPath = path.join(coin, group)
@@ -23,7 +25,7 @@ const prepare = (args) => {
 
   const output = path.join(cwd, args.options.output)
 
-  return { coin, count, group, root, output, json, csv }
+  return { coin, count, group, root, output, json, csv, includePrivateKey, saveAsOneFile }
 }
 
 export async function coinsList (args, done) {
