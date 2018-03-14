@@ -1,6 +1,6 @@
 {
   "name": "wallets-generator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Generate crypto wallets (bitcoin, ethereum...)",
   "repository": {
     "type": "git",
