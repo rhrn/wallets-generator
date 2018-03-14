@@ -33,7 +33,7 @@ export async function coinsList () {
   }
 }
 
-export async function generate ({ coin, count, root }) {
+export async function generate ({ coin, count, root, test }) {
   count = +count
 
   if (!coins[coin]) {
@@ -44,7 +44,7 @@ export async function generate ({ coin, count, root }) {
 
   let i = 0
   for (; i < count; i++) {
-    const wallet = coins[coin].generateWallet()
+    const wallet = coins[coin].generateWallet({ test })
     await db.saveWallet(root, wallet)
   }
 

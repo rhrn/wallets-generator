@@ -1,7 +1,7 @@
 import { generateWallet } from './ltc'
 
 it('generate wallet', () => {
-  const { privateKey, address } = generateWallet()
+  const { privateKey, address } = generateWallet({ test: true })
 
   expect(typeof privateKey).toEqual('string')
   expect(privateKey.length).toBeGreaterThan(10)

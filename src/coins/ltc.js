@@ -1,9 +1,8 @@
 import bitcoin from 'bitcoinjs-lib'
 
-export function generateWallet () {
-  const { litecoin } = bitcoin.networks
-
-  const pair = bitcoin.ECPair.makeRandom({ network: litecoin })
+export function generateWallet ({ test }) {
+  const network = test ? bitcoin.networks.testnet : bitcoin.networks.litecoin
+  const pair = bitcoin.ECPair.makeRandom({ network })
 
   return {
     privateKey: pair.toWIF(),

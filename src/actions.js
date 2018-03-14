@@ -6,8 +6,9 @@ const prepare = (args) => {
   const coin = args.coin.toLowerCase()
   const count = args.options.count || 1
   const wallets = args.options.wallets || 'wallets'
-  const group = args.options.group || 'main'
-
+  const test = args.options.test || false
+  let group = args.options.group || 'main'
+  if (test) group += '-test'
   const workdir = path.join(cwd, wallets)
   const subPath = path.join(coin, group)
   const root = path.join(workdir, subPath)
@@ -19,11 +20,11 @@ const prepare = (args) => {
     json = true
   }
 
-  args.options.output = args.options.output || `${coin}-${Date.now()}.${json ? 'json' : 'csv'}`
+  args.options.output = args.options.output || `${coin}${test?'-test':''}-${Date.now()}.${json ? 'json' : 'csv'}`
 
   const output = path.join(cwd, args.options.output)
 
-  return { coin, count, group, root, output, json, csv }
+  return { coin, count, group, root, output, json, csv, test }
 }
 
 export async function coinsList (args, done) {
