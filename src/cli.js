@@ -25,6 +25,7 @@ vorpal.command('list <coin>', 'List generated wallets')
   .action(list)
 
 vorpal.command('export <coin>', 'Export public address')
+  .alias('e')
   .option('-t, --test', 'Test wallets')
   .option('-o, --output <file>', 'Output csv file')
   .option('--csv', 'Output to csv')
