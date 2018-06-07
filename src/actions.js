@@ -20,7 +20,7 @@ const prepare = (args) => {
     json = true
   }
 
-  args.options.output = args.options.output || `${coin}${test?'-test':''}-${Date.now()}.${json ? 'json' : 'csv'}`
+  args.options.output = args.options.output || `${coin}${test ? '-test' : ''}-${Date.now()}.${json ? 'json' : 'csv'}`
 
   const output = path.join(cwd, args.options.output)
 
