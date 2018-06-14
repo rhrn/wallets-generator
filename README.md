@@ -26,11 +26,19 @@ npm install -g wallets-generator
 ```
 
 #### Show list
-* `wallets-generator list btc` - show list
+* `wallets-generator list btc`
 ```
 UTC--2017-11-30T10-01-33.413Z--1G3tYxPW9aBVkVn9WqGn2sJGsHehBCZ3zB
 UTC--2017-11-30T10-01-33.454Z--1H5pnU1kREM6cc3wMuKQWHJC7z8bDZVUmR
 UTC--2017-11-30T10-01-33.487Z--14zqZnKMisTbz8bzeUUUvwQ5DueJKyHiYw
+```
+
+#### Get balance
+* `wallets-generator balance btc`
+```
+n32noJgdnkCBch7QRTQybQhyScjJi48ktZ 1.2
+mrCeipU9MKEYBauatYdd1guYVFvGZpnV46 0
+mpvtspaeiU87pEigfPUfY7HjWvo9Fh6oUr 0
 ```
 
 #### Export to json
@@ -62,9 +70,10 @@ saved to: /path/btc.csv
 ```
   Commands:
 
-    help [command...]          Provides help for a given command.
-    coins                      Supported coins list
-    generate [options] <coin>  Generate wallets
-    list [options] <coin>      List generated wallets
-    export [options] <coin>    Export public address
+    help [command...]                   Provides help for a given command.
+    coins                               Supported coins list
+    balance [options] <coin> [address]  Get balance of address
+    generate [options] <coin>           Generate wallets
+    list [options] <coin>               List generated wallets
+    export [options] <coin>             Export public address
 ```

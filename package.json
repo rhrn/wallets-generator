@@ -36,7 +36,9 @@
   "license": "MIT",
   "dependencies": {
     "bitcoinjs-lib": "^3.3.1",
+    "concurrency-promise": "^1.0.1",
     "ethereumjs-wallet": "^0.6.0",
+    "etherscan-api": "^8.1.0",
     "fs-extra": "^4.0.2",
     "vorpal": "^1.12.0"
   },

@@ -1,6 +1,7 @@
 import fs from 'fs-extra'
 import * as db from './db/file'
 import * as coins from './coins'
+import * as balances from './balances'
 
 export async function coinsList () {
   return {
@@ -31,6 +32,22 @@ export async function coinsList () {
       }
     ]
   }
+}
+
+export async function balance ({ test, coin, root, address, collect }) {
+  let addresses = []
+
+  if (address) {
+    addresses.push(address)
+  } else {
+    const { data } = list({ root })
+    const parsed = db.parseList(data, coin)
+    addresses = parsed.map(address => address.address)
+  }
+
+  const result = await balances.getBalances({ coin, test, addresses })
+
+  return {balances: result}
 }
 
 export async function generate ({ coin, count, root, test }) {
