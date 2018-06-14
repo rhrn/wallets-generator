@@ -7,6 +7,8 @@ const prepare = (args) => {
   const count = args.options.count || 1
   const wallets = args.options.wallets || 'wallets'
   const test = args.options.test || false
+  const collect = args.options.collect || false
+  const address = args.address || null
   let group = args.options.group || 'main'
   if (test) group += '-test'
   const workdir = path.join(cwd, wallets)
@@ -24,7 +26,19 @@ const prepare = (args) => {
 
   const output = path.join(cwd, args.options.output)
 
-  return { coin, count, group, root, output, json, csv, test }
+  return { coin, count, group, root, output, json, csv, test, address, collect }
+}
+
+export async function balance (args, done) {
+  try {
+    const options = prepare(args)
+    const result = await api.balance(options)
+    if (options.collect) {
+      console.log(result)
+    }
+  } catch (e) {
+    done(e)
+  }
 }
 
 export async function coinsList (args, done) {

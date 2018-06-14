@@ -1,12 +1,19 @@
 #!/usr/bin/env node
 
 import Vorpal from 'vorpal'
-import { generate, list, exportAddress, coinsList } from './actions'
+import { balance, generate, list, exportAddress, coinsList } from './actions'
 
 const vorpal = Vorpal()
 
 vorpal.command('coins', 'Supported coins list')
   .action(coinsList)
+
+vorpal.command('balance <coin> [address]', 'Get balance of address')
+  .alias('b')
+  .option('--collect', 'Collect result')
+  .option('-t, --test', 'Test wallets')
+  .option('-g, --group [group]', 'Subdirectory group')
+  .action(balance)
 
 vorpal.command('generate <coin>', 'Generate wallets')
   .alias('gen')
