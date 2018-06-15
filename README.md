@@ -1,6 +1,7 @@
 # WARNING: it is alpha version. use at your own risk
 ### Geneate cold wallets and export public address to json and csv
 
+[![Build Status](https://travis-ci.org/rhrn/wallets-generator.svg?branch=master)](https://travis-ci.org/rhrn/wallets-generator)
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 ### Install
