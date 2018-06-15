@@ -1,6 +1,6 @@
 {
   "name": "wallets-generator",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Generate crypto wallets (bitcoin, ethereum...)",
   "repository": {
     "type": "git",
@@ -28,9 +28,20 @@
   },
   "keywords": [
     "crypto",
-    "wallet",
+    "balance",
     "bitcoin",
-    "ethereum"
+    "btc",
+    "litecoin",
+    "ltc",
+    "gold",
+    "btg",
+    "cache",
+    "bch",
+    "ethereum",
+    "eth",
+    "classic",
+    "etc",
+    "wallet"
   ],
   "author": "@rhrn",
   "license": "MIT",
