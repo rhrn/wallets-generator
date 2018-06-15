@@ -35,6 +35,8 @@
   "author": "@rhrn",
   "license": "MIT",
   "dependencies": {
+    "bgoldjs-lib": "^3.3.2",
+    "bitcoincashjs": "^0.1.10",
     "bitcoinjs-lib": "^3.3.1",
     "concurrency-promise": "^1.0.1",
     "ethereumjs-wallet": "^0.6.0",
