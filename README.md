@@ -1,6 +1,8 @@
 # WARNING: it is alpha version. use at your own risk
 ### Geneate cold wallets and export public address to json and csv
 
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 ### Install
 ```
 npm install -g wallets-generator
